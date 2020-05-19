@@ -1,0 +1,3 @@
+rootProject.name='ResultShowDialogExample'
+include ':app'
+include ':app:resultshowdialog'

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="result_show_primary_success">#22B573</string>
+    <string name="result_show_primary_error">#C1272D</string>
+</resources>
