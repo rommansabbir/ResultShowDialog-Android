@@ -36,28 +36,32 @@ Step 2. Add the dependency
 | Releases
 | ------------- |
 | 1.0           |
+| 1.0.1         |
 
 # Usages
 ````
         /**
-         * To show the result show dialog just call [ResultShowDialog.showDialogPrimary]
-         *
-         * @param activity, [Activity] reference
-         * @param isSuccess, Show dialog for success result or error result
-         * @param title, Provide title for the result show dialog
-         * @param message, Provide a message for the result show dialog
-         * @param actionButtonText, Provide own text for the action button
-         *
-         * Get notified about action button event by Kotlin's Higher Order Function
+         * It's easy to show the dialog. It follows The Builder Pattern
          */
-        ResultShowDialog.showDialogPrimary(
-            this,
-            true,
-            "Success",
-            "This is a dummy test, This is a dummy test, This is a dummy test ,This is a dummy test This is a dummy test This is a dummy testThis is a dummy testThis is a dummy test",
-            "Done"
-        ) {
-            //Do your stuff here
+        val result = ResultShowDialog.Companion.Builder()
+            //required
+            .withActivity(this)
+            //Default: True
+            .setIsSuccess(false)
+            //Default: Successful
+            .setTitle("Test Successful")
+            //Default: Your task was completed successfully
+            .setMessage("This is just a custom message")
+            //Default: OK
+            .setActionButtonText("Okay")
+            //return an instance of ResultShowDialog
+            .build()
+
+        result.show {
+            /*
+            This callback is invoked when user press the action button.
+            Do your stuff here.
+             */
         }
 ````
 ---
