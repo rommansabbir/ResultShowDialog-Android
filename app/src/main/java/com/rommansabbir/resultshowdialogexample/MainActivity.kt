@@ -14,8 +14,6 @@ class MainActivity : AppCompatActivity() {
          * It's easy to show the dialog. It follows The Builder Pattern
          */
         val result = ResultShowDialog.Companion.Builder()
-            //required
-            .withActivity(this)
             //Default: True
             .setIsSuccess(false)
             //Default: Successful
@@ -24,8 +22,8 @@ class MainActivity : AppCompatActivity() {
             .setMessage("This is just a custom message")
             //Default: OK
             .setActionButtonText("Okay")
-            //return an instance of ResultShowDialog
-            .build()
+            //return an instance of ResultShowDialog by providing the activity context
+            .build(this)
 
         result.show {
             /*

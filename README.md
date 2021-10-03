@@ -25,7 +25,7 @@ Step 2. Add the dependency
 
 ```gradle
 	dependencies {
-	        implementation 'com.github.rommansabbir:ResultShowDialog-Android:1.0'
+	        implementation 'com.github.rommansabbir:ResultShowDialog-Android:{TAG}'
 	}
 ```
 
@@ -37,6 +37,7 @@ Step 2. Add the dependency
 | ------------- |
 | 1.0           |
 | 1.0.1         |
+| 1.2.0         |
 
 # Usages
 ````
@@ -44,8 +45,6 @@ Step 2. Add the dependency
          * It's easy to show the dialog. It follows The Builder Pattern
          */
         val result = ResultShowDialog.Companion.Builder()
-            //required
-            .withActivity(this)
             //Default: True
             .setIsSuccess(false)
             //Default: Successful
@@ -54,8 +53,10 @@ Step 2. Add the dependency
             .setMessage("This is just a custom message")
             //Default: OK
             .setActionButtonText("Okay")
-            //return an instance of ResultShowDialog
-            .build()
+            //Default: false
+            .setCancelable(true)
+            //return an instance of ResultShowDialog by providing the activity context
+            .build(this/context)
 
         result.show {
             /*
